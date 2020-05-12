@@ -1,0 +1,35 @@
+version: '3'
+
+networks:
+    traefik:
+      external: true
+volumes:
+    data:
+
+services:
+  traefik:
+    image: traefik:1.7
+    command:
+      - "--docker"
+      - "--docker.swarmmode=true"
+      - "--docker.domain=docker.localhost"
+      - "--docker.watch=true"
+      - "--docker.exposedbydefault=true"
+      - "--docker.endpoint=unix:///var/run/docker.sock"
+    ports:
+      - "80:80"      # The HTTP port
+      - "8080:8080"  # The Web UI (enabled by --api)
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # So that Traefik can listen to the Docker events
+      - /opt/traefik/traefik.toml:/traefik.toml
+      - /opt/traefik/acme.json:/etc/traefik/acme/acme.json
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=false"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+      restart_policy:
+        condition: on-failure

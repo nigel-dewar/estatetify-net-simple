@@ -1,0 +1,25 @@
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
+
+import { PropertiesModule } from '../store/modules/properties';
+import { FiltersModule } from '../store/modules/filters';
+
+import {IProperty, IQueryParams, IResultPropertiesDTO} from '../../models/types';
+
+@Component({
+    name: 'ClassName',
+    components: {
+
+    }
+})
+export default class ClassName extends Vue {
+
+
+    // Remove these as required
+    @Prop({default: 'none'})
+    example: string = '';
+
+    @Watch('myProperty')
+    onPropertyChanged(value: string, oldValue: string) {
+        // Do stuff with the watcher here.
+    }
+}

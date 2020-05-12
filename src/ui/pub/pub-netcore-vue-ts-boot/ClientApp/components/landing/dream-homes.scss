@@ -1,0 +1,91 @@
+@import "../../sass/_base.scss";
+@import "../../sass/_typography.scss";
+
+.dream-homes {
+  padding-bottom: 3rem;
+  grid-column: 1 / -1;
+  justify-self: center;
+  // grid-row: 1 / -1;
+  display: grid;
+  margin-top: 4rem;
+  align-self: start;
+  background-color: #fff;
+  width: 1001px;
+  height: auto;
+
+  &__title {
+    font-size: 1.0rem;
+    font-family: Arial;
+    font-weight: 700;
+    padding-bottom: 10px;
+    color: #515b6e;
+  }
+}
+
+.carousel {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-gap: 20px;
+}
+
+.carousel-card {
+  background-color: $color-grey-light-2;
+  display: block;
+  width: 100%;
+  // margin: 5px;
+  box-shadow: 0 1px 3px 0 rgba(30, 41, 61, .2), 0 1px 3px 0 rgba(30, 41, 61, .2);
+  border-radius: 3px;
+
+  // cursor: pointer;
+  &__location {
+    margin-top: -30px;
+    // display: inline-block;
+    color: white;
+    font-size: 1rem;
+    padding-left: 15px;
+  }
+
+  &__suburb {
+    font-weight: bold;
+    display: inline;
+  }
+
+  &__state {
+    font-weight: 700;
+  }
+
+  &__icons {
+    background-color: white;
+    display: block;
+    // padding-left: 20px;
+  }
+
+  &__header {
+    background-color: white;
+    border-radius: 3px;
+    padding: 18px 18px;
+    color: #3c475b;
+  }
+
+  &__icon {
+    padding-right: 10px;
+  }
+
+  &__icon-number {
+    font-weight: 700;
+    font-family: $font-display;
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  &__img {
+    width: 100%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-image: linear-gradient(180deg, transparent, rgba(12, 31, 69, .5));
+  }
+}

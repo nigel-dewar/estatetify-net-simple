@@ -1,0 +1,16 @@
+import { Component, Vue } from 'vue-property-decorator';
+
+import { PropertiesModule } from '../store/modules/properties';
+import { FiltersModule } from '../store/modules/filters';
+
+import {IProperty, IQueryParams, IResultPropertiesDTO} from '../../models/types';
+
+@Component({
+    name: 'ClassName',
+    components: {
+
+    }
+})
+export default class ClassName extends Vue {
+
+}

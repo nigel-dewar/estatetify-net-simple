@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+  traefik:
+    image: "traefik:v2.0.0"
+    command:
+      - --entrypoints.web.address=:80
+      - --providers.docker=true
+      - --api.insecure # enables the dashboard on port 8080
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+  
+  my-app:
+    image: nginx
+    command:
+      # It tells whoami to start listening on 8082 instead of 80
+      - --port=8082
+    labels:
+      - "traefik.http.routers.my-app.rule=Host(`localhost`)"
+      - "traefik.http.services.my-app.loadbalancer.server.port=8082"

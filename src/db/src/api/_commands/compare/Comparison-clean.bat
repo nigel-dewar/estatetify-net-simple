@@ -1,0 +1,1 @@
+flyway -configFiles=./conf/dev-compare.conf clean

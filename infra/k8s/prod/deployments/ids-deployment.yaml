@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ids-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ids
+  replicas: 1
+  template: # template for the pods ddd
+    metadata:
+      labels:
+        app: ids
+    spec:
+      containers:
+        - name: ids
+          image: gcr.io/v4all-estate/re-ids:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+            limits:
+              memory: "512Mi"
+              cpu: "250m"
+          env:
+          - name: ConnectionStrings__DefaultConnection
+            valueFrom:
+              secretKeyRef:
+                key: ConnectionStrings__DefaultConnection
+                name: mysql-identity-database
+
+          - name: ManagementClientConfiguration__RedirectUris
+            value: https://estatetify.com/LoginRedirect,https://estatetify.com/SilentRenew,https://api.estatetify.com/swagger/oauth2-redirect.html
+
+          - name: ManagementClientConfiguration__PostLogoutRedirectUris
+            value: https://estatetify.com,https://estatetify.com/manage
+
+          - name: ManagementClientConfiguration__AllowedCorsOrigins
+            value: https://estatetify.com,https://estatetify.com/manage,https://api.estatetify.com,https://identity.estatetify.com
+
+          - name: Issuer
+            value: https://identity.estatetify.com
+      # imagePullSecrets:
+      #   - name: gcr-json-key
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ids-service
+
+spec:
+  # This defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users to connect to (eg browser)
+  selector:
+    app: ids
+
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+    # - name: https
+    #   protocol: TCP
+    #   port: 443
+    #   targetPort: 443
+
+  type: ClusterIP

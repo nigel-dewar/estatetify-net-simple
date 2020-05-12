@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_doco", "_doco", "{4D530D87-CF0A-4781-9592-4881220E6DEF}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		doco\Commands.txt = doco\Commands.txt
+		README.md = README.md
+		doco\Setup.docx = doco\Setup.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{C93CF161-6989-4899-90FD-8A8E8233A8A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F69CD60F-8BEE-4F22-BBA9-0B5EE5B929F6}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{5F698D42-272A-4AB1-8E62-252639587B9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "identity", "identity", "{ED7B3ED8-85EF-4629-A84F-F4B1C455F8A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Models", "src\api\application\DataAccess.Models\Domain.Models.csproj", "{7E57AB0E-1021-4372-B3FF-AED785524DEF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "src\api\domain\DataAccess\DataAccess.csproj", "{730E61DC-D3C3-4888-8DC0-188732FFB23D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Entities", "src\api\domain\Domain.Entities\Domain.Entities.csproj", "{17E71DFB-2B1D-4E4C-879A-CE56155940FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFLinq.Repository", "src\api\domain\EFLinq.Repository\EFLinq.Repository.csproj", "{CE2FA708-2948-4FDA-8359-904C61C1F903}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{4DA574B3-5F70-4D14-A26F-528FE1B164C6}"
+	ProjectSection(SolutionItems) = preProject
+		src\db\lab\SqlSchemaCompare.scmp = src\db\lab\SqlSchemaCompare.scmp
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TokenServiceApi", "src\identity\Identity\TokenServiceApi.csproj", "{723D43AC-408B-4712-BFD4-7281F50240F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProj", "src\api\infrastructure\ApiProj\ApiProj.csproj", "{1E2CBB90-6C5A-49BB-8008-20BC283D5E08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E57AB0E-1021-4372-B3FF-AED785524DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E57AB0E-1021-4372-B3FF-AED785524DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E57AB0E-1021-4372-B3FF-AED785524DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E57AB0E-1021-4372-B3FF-AED785524DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{730E61DC-D3C3-4888-8DC0-188732FFB23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730E61DC-D3C3-4888-8DC0-188732FFB23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730E61DC-D3C3-4888-8DC0-188732FFB23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730E61DC-D3C3-4888-8DC0-188732FFB23D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17E71DFB-2B1D-4E4C-879A-CE56155940FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17E71DFB-2B1D-4E4C-879A-CE56155940FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E71DFB-2B1D-4E4C-879A-CE56155940FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17E71DFB-2B1D-4E4C-879A-CE56155940FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE2FA708-2948-4FDA-8359-904C61C1F903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE2FA708-2948-4FDA-8359-904C61C1F903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE2FA708-2948-4FDA-8359-904C61C1F903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE2FA708-2948-4FDA-8359-904C61C1F903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{723D43AC-408B-4712-BFD4-7281F50240F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{723D43AC-408B-4712-BFD4-7281F50240F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{723D43AC-408B-4712-BFD4-7281F50240F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{723D43AC-408B-4712-BFD4-7281F50240F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E2CBB90-6C5A-49BB-8008-20BC283D5E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E2CBB90-6C5A-49BB-8008-20BC283D5E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E2CBB90-6C5A-49BB-8008-20BC283D5E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E2CBB90-6C5A-49BB-8008-20BC283D5E08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7E57AB0E-1021-4372-B3FF-AED785524DEF} = {5F698D42-272A-4AB1-8E62-252639587B9C}
+		{730E61DC-D3C3-4888-8DC0-188732FFB23D} = {5F698D42-272A-4AB1-8E62-252639587B9C}
+		{17E71DFB-2B1D-4E4C-879A-CE56155940FE} = {5F698D42-272A-4AB1-8E62-252639587B9C}
+		{CE2FA708-2948-4FDA-8359-904C61C1F903} = {5F698D42-272A-4AB1-8E62-252639587B9C}
+		{723D43AC-408B-4712-BFD4-7281F50240F9} = {ED7B3ED8-85EF-4629-A84F-F4B1C455F8A3}
+		{1E2CBB90-6C5A-49BB-8008-20BC283D5E08} = {5F698D42-272A-4AB1-8E62-252639587B9C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7EF8635-4988-481B-B91B-FD9B9A4FE12A}
+	EndGlobalSection
+EndGlobal

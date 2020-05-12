@@ -1,0 +1,13 @@
+*.vs
+.vs/
+
+**/obj
+**/bin
+**/node_modules
+
+**/obj/
+**/bin/
+
+**/.DS_Store
+
+infra/k8s/prod/secrets/secret-commands.txt

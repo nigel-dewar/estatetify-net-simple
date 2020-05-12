@@ -1,0 +1,67 @@
+.agent-card {
+    background-color: #F2F5F7;
+    // padding: 20px;
+    border: 1px solid #CFD3D9;
+}
+
+.agent-office-info {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: min-content auto;
+    
+    &__circle {
+        
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        padding: 2px;
+        // padding: 5px 5px;
+        img {
+            
+        }
+    }
+
+    &__agency {
+        font-weight: bold;
+        font-size: 1.2rem;
+        display: grid;
+        align-items: center;
+        padding-left: 20px; 
+    }
+}
+
+.call {
+    padding: 0px 20px 0px 20px;
+    display: grid;
+    justify-items: center;
+
+}
+
+.email {
+    padding: 0px 20px 10px 20px;
+}
+
+.button {
+    width: 100%;
+    margin-top: 10px;
+
+
+}
+
+.button-orange {
+    background-color: #F84E27;
+    color: white;
+    &:hover {
+        color: white;
+        background-color: darken($color: #F84E27, $amount: 10);
+    }
+}
+
+.company-brand {
+    display: grid;
+    padding: 10px;
+    justify-items: center;
+}

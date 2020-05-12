@@ -1,0 +1,1802 @@
+{
+	"info": {
+		"_postman_id": "33178a84-f640-4a20-9344-43cff57797d4",
+		"name": "Estatetify",
+		"description": "Real-Estate Api\n\nEndpoints:\n\nGetProperties\nGetProperty\n\nGetManagedProperties - properties that you have permissions for",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Api",
+			"item": [
+				{
+					"name": "Properties",
+					"item": [
+						{
+							"name": "Get All Properties",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/properties",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Properties",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/properties/find?mode=buy&page=0&suburbs=&propertyTypes=&features&minPrice=&maxPrice=&bedRooms=0,5&bathRooms=0,5&parking=0,5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"find"
+									],
+									"query": [
+										{
+											"key": "mode",
+											"value": "buy"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "suburbs",
+											"value": ""
+										},
+										{
+											"key": "propertyTypes",
+											"value": ""
+										},
+										{
+											"key": "features",
+											"value": null
+										},
+										{
+											"key": "minPrice",
+											"value": ""
+										},
+										{
+											"key": "maxPrice",
+											"value": ""
+										},
+										{
+											"key": "bedRooms",
+											"value": "0,5"
+										},
+										{
+											"key": "bathRooms",
+											"value": "0,5"
+										},
+										{
+											"key": "parking",
+											"value": "0,5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Properties Copy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/properties/find?bathRooms=0,5&bedRooms=0,5&parking=0,5&features=&minPrice=150000&maxPrice=10000000&mode=buy&page=1&propertyTypes=&suburbs=runcorn-4113",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"find"
+									],
+									"query": [
+										{
+											"key": "bathRooms",
+											"value": "0,5"
+										},
+										{
+											"key": "bedRooms",
+											"value": "0,5"
+										},
+										{
+											"key": "parking",
+											"value": "0,5"
+										},
+										{
+											"key": "features",
+											"value": ""
+										},
+										{
+											"key": "minPrice",
+											"value": "150000"
+										},
+										{
+											"key": "maxPrice",
+											"value": "10000000"
+										},
+										{
+											"key": "mode",
+											"value": "buy"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "propertyTypes",
+											"value": ""
+										},
+										{
+											"key": "suburbs",
+											"value": "runcorn-4113"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Property no auth",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJUb20iLCJuYmYiOjE1ODU5OTQ3NzQsImV4cCI6MTU4NjU5OTU3NCwiaWF0IjoxNTg1OTk0Nzc0fQ.Q7uuKyEl1GH7OFY6-2DHxkTEra5so80471FOvSBmbQR99RRk4Oo7IpDCqLOsvXlWXoSJKcn__8FgZ_Lc_OIeCA",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/properties/002d9b6a-2d89-480c-b9f7-8a52277b6204",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"002d9b6a-2d89-480c-b9f7-8a52277b6204"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Property By Slug",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJUb20iLCJuYmYiOjE1ODU5OTQ3NzQsImV4cCI6MTU4NjU5OTU3NCwiaWF0IjoxNTg1OTk0Nzc0fQ.Q7uuKyEl1GH7OFY6-2DHxkTEra5so80471FOvSBmbQR99RRk4Oo7IpDCqLOsvXlWXoSJKcn__8FgZ_Lc_OIeCA",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/properties/slug/5-maynard-place-berserker-4113",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"slug",
+										"5-maynard-place-berserker-4113"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Property Details with auth",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/properties/002d9b6a-2d89-480c-b9f7-8a52277b6204",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"002d9b6a-2d89-480c-b9f7-8a52277b6204"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Property",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											"var moment = require(\"moment\");",
+											"",
+											"pm.environment.set('availableDate', moment().add(14, 'days').toISOString());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"95 Ervamatia Street\",\n    \"suburb\": \"RUNCORN\",\n    \"propertyTypeId\" : 1,\n    \"description\" : \"ok property in Runcorn, its very nice etc etc\",\n    \"bedrooms\" : 1,\n    \"bathrooms\" : 4,\n    \"parkingSpaces\" : 2,\n    \"landSize\" : 90,\n    \"postCode\" : \"4113\",\n    \"streetNumber\" : \"95\",\n    \"route\" : \"Ervatamia Street\",\n    \"locality\" : \"Runcorn\",\n    \"country\" : \"Australia\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/properties/038bdb4e-afca-4ea9-82ff-e7d1bd394b29",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"038bdb4e-afca-4ea9-82ff-e7d1bd394b29"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Property",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImI2NDU1MzcwZjdhNzM2ZDM4MzgxOWE4ZjVlOThiZmQ5IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1ODEzMDE4NDIsImV4cCI6MTU4MTMwNTQ0MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJyZWFsZXN0YXRlLWFwaSJdLCJjbGllbnRfaWQiOiJwYXNzd29yZC1jbGllbnQiLCJzdWIiOiIwODNkNjczZi04ZDZjLTRmM2EtYmM1ZS1lMmFiNzgwZmNkYzYiLCJhdXRoX3RpbWUiOjE1ODEzMDE4NDIsImlkcCI6ImxvY2FsIiwiQXNwTmV0LklkZW50aXR5LlNlY3VyaXR5U3RhbXAiOiJDUVhLT0FTNzVTNFNZTVFDRFhBN1ZGQUUySEtTSjVNMiIsInByZWZlcnJlZF91c2VybmFtZSI6Im5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuYW1lIjoibmlnZWxkZXdhckBsaXZlLmNvbSIsImVtYWlsIjpbIm5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuaWdlbGRld2FyQGxpdmUuY29tIl0sImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwicmVhbGVzdGF0ZS1hcGkiXSwiYW1yIjpbInB3ZCJdfQ.g4XTBbMfdcWPmkLDHPtzKc1ZWqoHvLZgnFP564hBtNfQDUk_pjqTpvMHQZd7-PrNPL0xLX4nmjL41d8TEpiDep0Kn2lP7odGSYyCpVeaClILBh20HThykZKPxDMM0XyDOIWBx1jHtWezmaECLLl9NhLaLym0m9bfUzpJ3FHs4N5MPeGbgJjukPCHj-5ZjhARmcSfz0E0TGmg_toxKo8e5cyBcs6ASPHfwdt0dKa833lIXtyh5hBoXvXcEDyuf1Y-GQ0VLU_PqS0Rc9oo2bdwoU_hhNXo6MGnWXw5SKeaWPRMBDXm439riTx7kJnRtW_DL4XH5dXYgK2MiP7sIRX3bQ"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/properties/002d9b6a-2d89-480c-b9f7-8a52277b6204",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"002d9b6a-2d89-480c-b9f7-8a52277b6204"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Property",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											"var moment = require(\"moment\");",
+											"",
+											"pm.environment.set('availableDate', moment().add(14, 'days').toISOString());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"{{$guid}}\",\n    \"slug\": \"55-ervatamia-street-runcorn-4113\",\n    \"name\": \"55 Ervamatia Street\",\n    \"suburb\": \"RUNCORN\",\n    \"suburbSlug\" : \"runcorn-4113\",\n    \"postCode\" : \"4113\",\n    \"state\" : \"QLD\",\n    \"description\" : \"ok property in Runcorn, its very nice etc etc\",\n    \"isForSale\" : true,\n    \"buyPrice\" : 7858482.00,\n    \"landSize\" : 994,\n    \"shortDescription\" : \"its in Runcorn\",\n    \"availableDate\" : \"{{availableDate}}\",\n    \"parkingSpaces\" : 2,\n    \"bathrooms\" : 2,\n    \"bedrooms\" : 4,\n    \"isActive\" : true,\n    \"propertyTypeId\" : 1,\n    \"country\" : \"Australia\",\n    \"streetNumber\" : \"55\",\n    \"route\" : \"Ervatamia Street\",\n    \"locality\" : \"Runcorn\",\n    \"createdById\" : \"083d673f-8d6c-4f3a-bc5e-e2ab780fcdc6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/properties",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Property with current user as host",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											"var moment = require(\"moment\");",
+											"",
+											"pm.environment.set('availableDate', moment().add(14, 'days').toISOString());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"{{$guid}}\",\n    \"name\": \"66 Ervamatia Street\",\n    \"suburb\": \"RUNCORN\",\n    \"postCode\" : \"4113\",\n    \"state\" : \"QLD\",\n    \"description\" : \"ok property in Runcorn, its very nice etc etc\",\n    \"buyPrice\" : 785,\n    \"landSize\" : 994,\n    \"parkingSpaces\" : 2,\n    \"bathrooms\" : 2,\n    \"bedrooms\" : 4,\n    \"propertyTypeId\" : 1,\n    \"country\" : \"Australia\",\n    \"streetNumber\" : \"66\",\n    \"route\" : \"Ervatamia Street\",\n    \"locality\" : \"Runcorn\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/properties",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Attendance as Tom",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											"var moment = require(\"moment\");",
+											"",
+											"pm.environment.set('availableDate', moment().add(14, 'days').toISOString());"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bab3a52-44f2-487c-8719-a0689f496488",
+										"exec": [
+											"var data = pm.response.json();",
+											"",
+											"pm.test(\"response is 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/properties/002d9b6a-2d89-480c-b9f7-8a52277b6204/attend",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"002d9b6a-2d89-480c-b9f7-8a52277b6204",
+										"attend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Image to property",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bab3a52-44f2-487c-8719-a0689f496488",
+										"exec": [
+											"var data = pm.response.json();",
+											"",
+											"pm.test(\"response is 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "File",
+											"type": "file",
+											"src": "/E:/_projects/estatetify/Houses/house-1/2016057085_17_1_200205_061345-w900-h600.jfif"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/properties/002d9b6a-2d89-480c-b9f7-8a52277b6204/addImage",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"002d9b6a-2d89-480c-b9f7-8a52277b6204",
+										"addImage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Activity to Property",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											"var moment = require(\"moment\");",
+											"",
+											"pm.environment.set('availableDate', moment().add(14, 'days').toISOString());"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bab3a52-44f2-487c-8719-a0689f496488",
+										"exec": [
+											"var data = pm.response.json();",
+											"",
+											"pm.test(\"response is 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"Past Activity 7\",\n    \"description\": \"Activity 7 month ago\",\n    \"category\": \"culture\",\n    \"date\": \"{{availableDate}}\",\n    \"city\": \"Brisbane\",\n    \"venue\": \"Online\",\n    \"activityType\": \"Property Viewing\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/properties/002d9b6a-2d89-480c-b9f7-8a52277b6204/addactivity",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"002d9b6a-2d89-480c-b9f7-8a52277b6204",
+										"addactivity"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remote Attendance as Tom",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											"var moment = require(\"moment\");",
+											"",
+											"pm.environment.set('availableDate', moment().add(14, 'days').toISOString());"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bab3a52-44f2-487c-8719-a0689f496488",
+										"exec": [
+											"var data = pm.response.json();",
+											"",
+											"pm.test(\"response is 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/properties/002d9b6a-2d89-480c-b9f7-8a52277b6204/attend",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										"002d9b6a-2d89-480c-b9f7-8a52277b6204",
+										"attend"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Login user successful",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImI2NDU1MzcwZjdhNzM2ZDM4MzgxOWE4ZjVlOThiZmQ5IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1ODEzMDE4NDIsImV4cCI6MTU4MTMwNTQ0MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJyZWFsZXN0YXRlLWFwaSJdLCJjbGllbnRfaWQiOiJwYXNzd29yZC1jbGllbnQiLCJzdWIiOiIwODNkNjczZi04ZDZjLTRmM2EtYmM1ZS1lMmFiNzgwZmNkYzYiLCJhdXRoX3RpbWUiOjE1ODEzMDE4NDIsImlkcCI6ImxvY2FsIiwiQXNwTmV0LklkZW50aXR5LlNlY3VyaXR5U3RhbXAiOiJDUVhLT0FTNzVTNFNZTVFDRFhBN1ZGQUUySEtTSjVNMiIsInByZWZlcnJlZF91c2VybmFtZSI6Im5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuYW1lIjoibmlnZWxkZXdhckBsaXZlLmNvbSIsImVtYWlsIjpbIm5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuaWdlbGRld2FyQGxpdmUuY29tIl0sImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwicmVhbGVzdGF0ZS1hcGkiXSwiYW1yIjpbInB3ZCJdfQ.g4XTBbMfdcWPmkLDHPtzKc1ZWqoHvLZgnFP564hBtNfQDUk_pjqTpvMHQZd7-PrNPL0xLX4nmjL41d8TEpiDep0Kn2lP7odGSYyCpVeaClILBh20HThykZKPxDMM0XyDOIWBx1jHtWezmaECLLl9NhLaLym0m9bfUzpJ3FHs4N5MPeGbgJjukPCHj-5ZjhARmcSfz0E0TGmg_toxKo8e5cyBcs6ASPHfwdt0dKa833lIXtyh5hBoXvXcEDyuf1Y-GQ0VLU_PqS0Rc9oo2bdwoU_hhNXo6MGnWXw5SKeaWPRMBDXm439riTx7kJnRtW_DL4XH5dXYgK2MiP7sIRX3bQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\"\t: \"tom@live.com\",\n\t\"password\": \"Password1!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login as Tom and save token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "de2bf036-6872-462a-9a4b-a759c24aa2cc",
+										"exec": [
+											"const user = pm.response.json();",
+											"",
+											"pm.test(\"Has properties\", function() {",
+											"    pm.expect(user).to.have.property('displayName');",
+											"    pm.expect(user).to.have.property('username');",
+											"    pm.expect(user).to.have.property('image');",
+											"    pm.expect(user).to.have.property('token');",
+											"});",
+											"",
+											"if (pm.test(\"Has properties\")) {",
+											"    pm.globals.set('token', user.token);",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImI2NDU1MzcwZjdhNzM2ZDM4MzgxOWE4ZjVlOThiZmQ5IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1ODEzMDE4NDIsImV4cCI6MTU4MTMwNTQ0MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJyZWFsZXN0YXRlLWFwaSJdLCJjbGllbnRfaWQiOiJwYXNzd29yZC1jbGllbnQiLCJzdWIiOiIwODNkNjczZi04ZDZjLTRmM2EtYmM1ZS1lMmFiNzgwZmNkYzYiLCJhdXRoX3RpbWUiOjE1ODEzMDE4NDIsImlkcCI6ImxvY2FsIiwiQXNwTmV0LklkZW50aXR5LlNlY3VyaXR5U3RhbXAiOiJDUVhLT0FTNzVTNFNZTVFDRFhBN1ZGQUUySEtTSjVNMiIsInByZWZlcnJlZF91c2VybmFtZSI6Im5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuYW1lIjoibmlnZWxkZXdhckBsaXZlLmNvbSIsImVtYWlsIjpbIm5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuaWdlbGRld2FyQGxpdmUuY29tIl0sImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwicmVhbGVzdGF0ZS1hcGkiXSwiYW1yIjpbInB3ZCJdfQ.g4XTBbMfdcWPmkLDHPtzKc1ZWqoHvLZgnFP564hBtNfQDUk_pjqTpvMHQZd7-PrNPL0xLX4nmjL41d8TEpiDep0Kn2lP7odGSYyCpVeaClILBh20HThykZKPxDMM0XyDOIWBx1jHtWezmaECLLl9NhLaLym0m9bfUzpJ3FHs4N5MPeGbgJjukPCHj-5ZjhARmcSfz0E0TGmg_toxKo8e5cyBcs6ASPHfwdt0dKa833lIXtyh5hBoXvXcEDyuf1Y-GQ0VLU_PqS0Rc9oo2bdwoU_hhNXo6MGnWXw5SKeaWPRMBDXm439riTx7kJnRtW_DL4XH5dXYgK2MiP7sIRX3bQ",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\"\t: \"tom@live.com\",\n\t\"password\": \"Password1!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login as Nigel and save token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "de2bf036-6872-462a-9a4b-a759c24aa2cc",
+										"exec": [
+											"const user = pm.response.json();",
+											"",
+											"pm.test(\"Has properties\", function() {",
+											"    pm.expect(user).to.have.property('displayName');",
+											"    pm.expect(user).to.have.property('username');",
+											"    pm.expect(user).to.have.property('image');",
+											"    pm.expect(user).to.have.property('token');",
+											"});",
+											"",
+											"if (pm.test(\"Has properties\")) {",
+											"    pm.globals.set('token', user.token);",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImI2NDU1MzcwZjdhNzM2ZDM4MzgxOWE4ZjVlOThiZmQ5IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1ODEzMDE4NDIsImV4cCI6MTU4MTMwNTQ0MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJyZWFsZXN0YXRlLWFwaSJdLCJjbGllbnRfaWQiOiJwYXNzd29yZC1jbGllbnQiLCJzdWIiOiIwODNkNjczZi04ZDZjLTRmM2EtYmM1ZS1lMmFiNzgwZmNkYzYiLCJhdXRoX3RpbWUiOjE1ODEzMDE4NDIsImlkcCI6ImxvY2FsIiwiQXNwTmV0LklkZW50aXR5LlNlY3VyaXR5U3RhbXAiOiJDUVhLT0FTNzVTNFNZTVFDRFhBN1ZGQUUySEtTSjVNMiIsInByZWZlcnJlZF91c2VybmFtZSI6Im5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuYW1lIjoibmlnZWxkZXdhckBsaXZlLmNvbSIsImVtYWlsIjpbIm5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuaWdlbGRld2FyQGxpdmUuY29tIl0sImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwicmVhbGVzdGF0ZS1hcGkiXSwiYW1yIjpbInB3ZCJdfQ.g4XTBbMfdcWPmkLDHPtzKc1ZWqoHvLZgnFP564hBtNfQDUk_pjqTpvMHQZd7-PrNPL0xLX4nmjL41d8TEpiDep0Kn2lP7odGSYyCpVeaClILBh20HThykZKPxDMM0XyDOIWBx1jHtWezmaECLLl9NhLaLym0m9bfUzpJ3FHs4N5MPeGbgJjukPCHj-5ZjhARmcSfz0E0TGmg_toxKo8e5cyBcs6ASPHfwdt0dKa833lIXtyh5hBoXvXcEDyuf1Y-GQ0VLU_PqS0Rc9oo2bdwoU_hhNXo6MGnWXw5SKeaWPRMBDXm439riTx7kJnRtW_DL4XH5dXYgK2MiP7sIRX3bQ",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\"\t: \"nigeldewar@live.com\",\n\t\"password\": \"Password1!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register user",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImI2NDU1MzcwZjdhNzM2ZDM4MzgxOWE4ZjVlOThiZmQ5IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1ODEzMDE4NDIsImV4cCI6MTU4MTMwNTQ0MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJyZWFsZXN0YXRlLWFwaSJdLCJjbGllbnRfaWQiOiJwYXNzd29yZC1jbGllbnQiLCJzdWIiOiIwODNkNjczZi04ZDZjLTRmM2EtYmM1ZS1lMmFiNzgwZmNkYzYiLCJhdXRoX3RpbWUiOjE1ODEzMDE4NDIsImlkcCI6ImxvY2FsIiwiQXNwTmV0LklkZW50aXR5LlNlY3VyaXR5U3RhbXAiOiJDUVhLT0FTNzVTNFNZTVFDRFhBN1ZGQUUySEtTSjVNMiIsInByZWZlcnJlZF91c2VybmFtZSI6Im5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuYW1lIjoibmlnZWxkZXdhckBsaXZlLmNvbSIsImVtYWlsIjpbIm5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuaWdlbGRld2FyQGxpdmUuY29tIl0sImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwicmVhbGVzdGF0ZS1hcGkiXSwiYW1yIjpbInB3ZCJdfQ.g4XTBbMfdcWPmkLDHPtzKc1ZWqoHvLZgnFP564hBtNfQDUk_pjqTpvMHQZd7-PrNPL0xLX4nmjL41d8TEpiDep0Kn2lP7odGSYyCpVeaClILBh20HThykZKPxDMM0XyDOIWBx1jHtWezmaECLLl9NhLaLym0m9bfUzpJ3FHs4N5MPeGbgJjukPCHj-5ZjhARmcSfz0E0TGmg_toxKo8e5cyBcs6ASPHfwdt0dKa833lIXtyh5hBoXvXcEDyuf1Y-GQ0VLU_PqS0Rc9oo2bdwoU_hhNXo6MGnWXw5SKeaWPRMBDXm439riTx7kJnRtW_DL4XH5dXYgK2MiP7sIRX3bQ",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\"\t: \"sally@co.com\",\n\t\"username\": \"sall\",\n\t\"password\": \"Passwo\",\n\t\"displayName\": \"Sally\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user/Register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"Register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Current User",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJUb20iLCJuYmYiOjE1ODYwMDE2NjQsImV4cCI6MTU4NjYwNjQ2NCwiaWF0IjoxNTg2MDAxNjY0fQ.Xeiy2N_485YL4ifwOVvZzje_EG-XTKZnwD4WZC2eyM0zVUZZXaMyET2H6L0Rh_ZWP6awXPLz-Y7QIWWEj47MpA"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Profile for Tom",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/profiles/Tom",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"profiles",
+										"Tom"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Profile for Nigel",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/profiles/Nigel",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"profiles",
+										"Nigel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login bad password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImI2NDU1MzcwZjdhNzM2ZDM4MzgxOWE4ZjVlOThiZmQ5IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1ODEzMDE4NDIsImV4cCI6MTU4MTMwNTQ0MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJyZWFsZXN0YXRlLWFwaSJdLCJjbGllbnRfaWQiOiJwYXNzd29yZC1jbGllbnQiLCJzdWIiOiIwODNkNjczZi04ZDZjLTRmM2EtYmM1ZS1lMmFiNzgwZmNkYzYiLCJhdXRoX3RpbWUiOjE1ODEzMDE4NDIsImlkcCI6ImxvY2FsIiwiQXNwTmV0LklkZW50aXR5LlNlY3VyaXR5U3RhbXAiOiJDUVhLT0FTNzVTNFNZTVFDRFhBN1ZGQUUySEtTSjVNMiIsInByZWZlcnJlZF91c2VybmFtZSI6Im5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuYW1lIjoibmlnZWxkZXdhckBsaXZlLmNvbSIsImVtYWlsIjpbIm5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuaWdlbGRld2FyQGxpdmUuY29tIl0sImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwicmVhbGVzdGF0ZS1hcGkiXSwiYW1yIjpbInB3ZCJdfQ.g4XTBbMfdcWPmkLDHPtzKc1ZWqoHvLZgnFP564hBtNfQDUk_pjqTpvMHQZd7-PrNPL0xLX4nmjL41d8TEpiDep0Kn2lP7odGSYyCpVeaClILBh20HThykZKPxDMM0XyDOIWBx1jHtWezmaECLLl9NhLaLym0m9bfUzpJ3FHs4N5MPeGbgJjukPCHj-5ZjhARmcSfz0E0TGmg_toxKo8e5cyBcs6ASPHfwdt0dKa833lIXtyh5hBoXvXcEDyuf1Y-GQ0VLU_PqS0Rc9oo2bdwoU_hhNXo6MGnWXw5SKeaWPRMBDXm439riTx7kJnRtW_DL4XH5dXYgK2MiP7sIRX3bQ",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\"\t: \"tom@live.com\",\n\t\"password\": \"Password1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Validation Error",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImI2NDU1MzcwZjdhNzM2ZDM4MzgxOWE4ZjVlOThiZmQ5IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1ODEzMDE4NDIsImV4cCI6MTU4MTMwNTQ0MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJyZWFsZXN0YXRlLWFwaSJdLCJjbGllbnRfaWQiOiJwYXNzd29yZC1jbGllbnQiLCJzdWIiOiIwODNkNjczZi04ZDZjLTRmM2EtYmM1ZS1lMmFiNzgwZmNkYzYiLCJhdXRoX3RpbWUiOjE1ODEzMDE4NDIsImlkcCI6ImxvY2FsIiwiQXNwTmV0LklkZW50aXR5LlNlY3VyaXR5U3RhbXAiOiJDUVhLT0FTNzVTNFNZTVFDRFhBN1ZGQUUySEtTSjVNMiIsInByZWZlcnJlZF91c2VybmFtZSI6Im5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuYW1lIjoibmlnZWxkZXdhckBsaXZlLmNvbSIsImVtYWlsIjpbIm5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuaWdlbGRld2FyQGxpdmUuY29tIl0sImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwicmVhbGVzdGF0ZS1hcGkiXSwiYW1yIjpbInB3ZCJdfQ.g4XTBbMfdcWPmkLDHPtzKc1ZWqoHvLZgnFP564hBtNfQDUk_pjqTpvMHQZd7-PrNPL0xLX4nmjL41d8TEpiDep0Kn2lP7odGSYyCpVeaClILBh20HThykZKPxDMM0XyDOIWBx1jHtWezmaECLLl9NhLaLym0m9bfUzpJ3FHs4N5MPeGbgJjukPCHj-5ZjhARmcSfz0E0TGmg_toxKo8e5cyBcs6ASPHfwdt0dKa833lIXtyh5hBoXvXcEDyuf1Y-GQ0VLU_PqS0Rc9oo2bdwoU_hhNXo6MGnWXw5SKeaWPRMBDXm439riTx7kJnRtW_DL4XH5dXYgK2MiP7sIRX3bQ",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\"\t: \"tom@live.com\",\n\t\"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Image as Current User",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bab3a52-44f2-487c-8719-a0689f496488",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "File",
+											"type": "file",
+											"src": "/C:/Users/nigel/OneDrive/Pictures/image8.jpg"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user/addimage",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"addimage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set Image as Main",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bab3a52-44f2-487c-8719-a0689f496488",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "File",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user/SetMain/08d7dd41-6baf-8d42-af62-b8a953bea6aa",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"SetMain",
+										"08d7dd41-6baf-8d42-af62-b8a953bea6aa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Image from Tom",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bab3a52-44f2-487c-8719-a0689f496488",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/user/deleteimage/08d7dd23-6481-1b31-0a03-7fb32aec5e43",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"deleteimage",
+										"08d7dd23-6481-1b31-0a03-7fb32aec5e43"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Activities",
+					"item": [
+						{
+							"name": "Get all Activites",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/activities",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"activities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Activity with current user as host",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "25c84bff-b16c-46f4-ae63-d0a78b050a3c",
+										"exec": [
+											"var moment = require(\"moment\");",
+											"",
+											"pm.environment.set('availableDate', moment().add(14, 'days').toISOString());"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "dc69fb63-bbb8-44cd-8ce8-0c7e9f98d104",
+										"exec": [
+											"pm.test(\"response is ok\", function() {",
+											"    pm.response.to.have.status(200);",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"id\": \"{{$guid}}\",\r\n    \"title\": \"Past Activity 7\",\r\n    \"description\": \"Activity 7 month ago\",\r\n    \"category\": \"culture\",\r\n    \"date\": \"{{availableDate}}\",\r\n    \"city\": \"Brisbane\",\r\n    \"venue\": \"Online\",\r\n    \"activityType\": \"Property Viewing\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/activities",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"activities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Activity by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/activities/08d7db2a-1499-ab17-d5ce-7af391117a62",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"activities",
+										"08d7db2a-1499-ab17-d5ce-7af391117a62"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Activity",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/activities/08d7db2a-1499-ab17-d5ce-7af391117a62",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"activities",
+										"08d7db2a-1499-ab17-d5ce-7af391117a62"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Attendance as Current user",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a6df577-24c4-4304-96ba-d7234ccf3372",
+										"exec": [
+											"var moment = require(\"moment\");",
+											"",
+											"pm.environment.set('availableDate', moment().add(14, 'days').toISOString());"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bab3a52-44f2-487c-8719-a0689f496488",
+										"exec": [
+											"var data = pm.response.json();",
+											"",
+											"pm.test(\"response is 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/activities/08d7deb4-bf95-156f-0c6b-080de8250ae1/attend",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"activities",
+										"08d7deb4-bf95-156f-0c6b-080de8250ae1",
+										"attend"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "/api/Filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/api/filters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"filters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/login",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImI2NDU1MzcwZjdhNzM2ZDM4MzgxOWE4ZjVlOThiZmQ5IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1ODEzMDE4NDIsImV4cCI6MTU4MTMwNTQ0MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJyZWFsZXN0YXRlLWFwaSJdLCJjbGllbnRfaWQiOiJwYXNzd29yZC1jbGllbnQiLCJzdWIiOiIwODNkNjczZi04ZDZjLTRmM2EtYmM1ZS1lMmFiNzgwZmNkYzYiLCJhdXRoX3RpbWUiOjE1ODEzMDE4NDIsImlkcCI6ImxvY2FsIiwiQXNwTmV0LklkZW50aXR5LlNlY3VyaXR5U3RhbXAiOiJDUVhLT0FTNzVTNFNZTVFDRFhBN1ZGQUUySEtTSjVNMiIsInByZWZlcnJlZF91c2VybmFtZSI6Im5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuYW1lIjoibmlnZWxkZXdhckBsaXZlLmNvbSIsImVtYWlsIjpbIm5pZ2VsZGV3YXJAbGl2ZS5jb20iLCJuaWdlbGRld2FyQGxpdmUuY29tIl0sImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwicmVhbGVzdGF0ZS1hcGkiXSwiYW1yIjpbInB3ZCJdfQ.g4XTBbMfdcWPmkLDHPtzKc1ZWqoHvLZgnFP564hBtNfQDUk_pjqTpvMHQZd7-PrNPL0xLX4nmjL41d8TEpiDep0Kn2lP7odGSYyCpVeaClILBh20HThykZKPxDMM0XyDOIWBx1jHtWezmaECLLl9NhLaLym0m9bfUzpJ3FHs4N5MPeGbgJjukPCHj-5ZjhARmcSfz0E0TGmg_toxKo8e5cyBcs6ASPHfwdt0dKa833lIXtyh5hBoXvXcEDyuf1Y-GQ0VLU_PqS0Rc9oo2bdwoU_hhNXo6MGnWXw5SKeaWPRMBDXm439riTx7kJnRtW_DL4XH5dXYgK2MiP7sIRX3bQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/property",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"property"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Identity",
+			"item": [
+				{
+					"name": "http://localhost:5000/.well-known/openid-configuration",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/.well-known/openid-configuration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								".well-known",
+								"openid-configuration"
+							]
+						},
+						"description": "http://localhost:5000/.well-known/openid-configuration"
+					},
+					"response": []
+				},
+				{
+					"name": "Login ClientCredentials",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "realestate-api",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Password",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "password-client",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid profile realestate-api roles",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "nigeldewar@live.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Austina40!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PostCodes",
+			"item": [
+				{
+					"name": "PostCode FindByAny",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"query\": \"Runc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/postcodes/FindByAny",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"postcodes",
+								"FindByAny"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCode FindByPostCode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"query\": \"runcorn-4113\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/postcodes/FindBySlug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"postcodes",
+								"FindBySlug"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ab7266e4-c3ef-4916-8eb9-710b5244f56c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d79a3768-680b-4aee-9b0b-497d26e2982e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d0766f62-5865-4591-894f-8fb182e540d8",
+			"key": "url",
+			"value": "http://localhost:5001",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

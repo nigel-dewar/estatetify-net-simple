@@ -1,0 +1,1 @@
+flyway -configFiles=./conf/dev-identity.conf info

@@ -1,0 +1,1 @@
+Set-Alias -name k -Value kubectl

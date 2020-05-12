@@ -1,0 +1,1 @@
+kubectl config use-context gke_v4all-estate_australia-southeast1-b_au-cluster-3

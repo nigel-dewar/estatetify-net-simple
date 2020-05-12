@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ids-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ids
+  replicas: 1
+  template: # template for the pods ddd
+    metadata:
+      labels:
+        app: ids
+    spec:
+      containers:
+        - name: ids
+          image: my-registry:55000/re-ids:latest
+          ports:
+            - containerPort: 80
+          env:
+          - name: ConnectionStrings__DefaultConnection
+            valueFrom:
+              secretKeyRef:
+                key: ConnectionStrings__DefaultConnection
+                name: mysql-identity-database
+          - name: ManagementClientConfiguration__RedirectUris
+            value: http://dev-estatetify.local/LoginRedirect,http://dev-estatetify.local/manage/LoginRedirect,http://dev-estatetify.local/silent-redirect.html,http://dev-estatetify.local/manage/silent-redirect.html,http://api.dev-estatetify.local/swagger/oauth2-redirect.html
+          - name: ManagementClientConfiguration__PostLogoutRedirectUris
+            value: http://dev-estatetify.local,http://dev-estatetify.local/manage
+          - name: ManagementClientConfiguration__AllowedCorsOrigins
+            value: http://dev-estatetify.local,http://dev-estatetify.local/manage,http://api.dev-estatetify.local,http://identity.dev-estatetify.local
+          - name: Issuer
+            value: http://identity.dev-estatetify.local
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ids-service
+
+spec:
+  # This defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users to connect to (eg browser)
+  selector:
+    app: ids
+
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+
+  type: ClusterIP

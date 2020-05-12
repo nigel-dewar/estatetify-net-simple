@@ -1,0 +1,14 @@
+@import "../../../sass/_base.scss";
+@import "../../../sass/_typography.scss";
+// @import "../property.scss";
+
+.card {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid red;
+
+}
+
+.image {
+    width: 80%;
+}

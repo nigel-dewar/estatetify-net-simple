@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+
+  # nginx:
+  #   restart: always
+  #   build: 
+  #     dockerfile: Dockerfile
+  #     context: ./nginx
+  #   ports:
+  #     - "7050:80"
+
+  mgt:
+    build:
+      dockerfile: Dockerfile
+      context: ./ui/management
+    image: my-registry:55000/re-mgt:latest
+    ports:
+      - "7080:80"
+    environment:
+      - VUE_APP_IDENTITY_URL=http://localhost:7000
+      - VUE_APP_API_URL=http://localhost:7001
+      - VUE_APP_CLIENT_URL=http://localhost:7080
+    
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+    image: my-registry:55000/re-api:latest
+    ports:
+      - "7001:80"
+
+  ids:
+    build:
+      dockerfile: Dockerfile
+      context: ./identity
+      # args:
+      #   - CONNECTION_STRING=Server=localhost;Database=RealEstate;User=sa;Password=Welcome1;
+      #   - REDIRECT_URIS=http://localhost:7080/LoginRedirect,http://localhost:7080/silent-redirect.html,http://localhost:7001/swagger/oauth2-redirect.html
+      #   - POST_LOGOUT_REDIRECT_URIS=http://localhost:7080
+      #   - ALLOWED_CORS_ORIGINS=http://localhost:7080,http://localhost:7001,http://localhost:7000
+      #   - ISSUER=http://localhost:7000
+    image: my-registry:55000/re-ids:latest
+    ports:
+      - "7000:80"
+    environment: 
+      - ConnectionStrings__DefaultConnection=server=192.168.1.7;port=3306;database=realestate_identity_dev;user=dev;password=;
+      - ManagementClientConfiguration__RedirectUris=http://localhost:7080/LoginRedirect,http://localhost:7080/silent-redirect.html,https://localhost:7001/swagger/oauth2-redirect.html
+      - ManagementClientConfiguration__PostLogoutRedirectUris=http://localhost:7080
+      - ManagementClientConfiguration__AllowedCorsOrigins=http://localhost:7080, https://localhost:7001 http://localhost:7000
+      - Issuer=http://localhost:7000

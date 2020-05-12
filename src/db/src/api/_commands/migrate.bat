@@ -1,0 +1,1 @@
+flyway -configFiles=./conf/dev-api.conf migrate

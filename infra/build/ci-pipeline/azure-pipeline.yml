@@ -1,0 +1,300 @@
+pr: none
+trigger:
+  batch: 'true'
+  branches:
+    include:
+      - master
+      - feature/*
+      - bugfix/*
+    exclude:
+      - experiment/*
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+variables:
+  IMAGE_TAG_PREFIX: latest
+  ENV_NAMESPACE: development
+
+stages:
+  - stage: Build
+    jobs:
+      - job: VariableInit
+        displayName: 'Initialise variables'
+        steps:
+          - task: GitVersion@5
+            displayName: 'GitVersion: Set SemVer Compatible Version Number'
+            inputs:
+              runtime: 'core'
+
+          - script: |
+              echo "##vso[task.setvariable variable=SPECIFIC_IMAGE_TAG_PREFIX;isOutput=true]$(GitVersion.SemVer)-$(GitVersion.BuildMetaData)"
+            displayName: 'Construct specific image tag prefix'
+            name: specificImageTagTask
+
+          - script: |
+              echo "##vso[task.setvariable variable=IMAGE_TAG_PREFIX]latest-feature"
+            condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/feature/')
+            displayName: 'Override latest image tag prefix for feature branch'
+
+          - script: |
+              echo "##vso[task.setvariable variable=ENV_NAMESPACE]development"
+            condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/feature/')
+            displayName: 'Override environment namespace for feature branch'
+
+      - job: WebPublicImage
+        displayName: 'Build and publish web-public image'
+        dependsOn: VariableInit
+        variables:
+          SPECIFIC_IMAGE_TAG_PREFIX: $[ dependencies.VariableInit.outputs['specificImageTagTask.SPECIFIC_IMAGE_TAG_PREFIX'] ]
+        steps:
+          - task: Docker@2
+            displayName: 'Build and push web-public image'
+            inputs:
+              containerRegistry: 'TechLink Azure Docker Registry'
+              repository: '$(Build.Repository.Name)'
+              tags: |
+                $(SPECIFIC_IMAGE_TAG_PREFIX)-web-public
+                $(IMAGE_TAG_PREFIX)-web-public
+              command: 'buildAndPush'
+              Dockerfile: 'ui/public/Dockerfile'
+              buildContext: 'ui/public'
+
+      - job: IdentityImage
+        displayName: 'Build and publish identity image'
+        dependsOn: VariableInit
+        variables:
+          SPECIFIC_IMAGE_TAG_PREFIX: $[ dependencies.VariableInit.outputs['specificImageTagTask.SPECIFIC_IMAGE_TAG_PREFIX'] ]
+        steps:
+          - task: Docker@2
+            displayName: 'Build and push identity image'
+            inputs:
+              containerRegistry: 'TechLink Azure Docker Registry'
+              repository: '$(Build.Repository.Name)'
+              tags: |
+                $(SPECIFIC_IMAGE_TAG_PREFIX)-identity
+                $(IMAGE_TAG_PREFIX)-identity
+              command: 'buildAndPush'
+              Dockerfile: 'build/identity.dockerfile'
+              buildContext: ''
+
+      - job: ApiImage
+        displayName: 'Build and publish API image'
+        dependsOn: VariableInit
+        variables:
+          SPECIFIC_IMAGE_TAG_PREFIX: $[ dependencies.VariableInit.outputs['specificImageTagTask.SPECIFIC_IMAGE_TAG_PREFIX'] ]
+        steps:
+          - task: Docker@2
+            displayName: 'Build and push API image'
+            inputs:
+              containerRegistry: 'TechLink Azure Docker Registry'
+              repository: '$(Build.Repository.Name)'
+              tags: |
+                $(SPECIFIC_IMAGE_TAG_PREFIX)-api
+                $(IMAGE_TAG_PREFIX)-api
+              command: 'buildAndPush'
+              Dockerfile: 'build/api.dockerfile'
+              buildContext: ''
+
+      - job: DbSchemaMigratorImage
+        displayName: 'Build and publish db-schema-migrator image'
+        dependsOn: VariableInit
+        variables:
+          SPECIFIC_IMAGE_TAG_PREFIX: $[ dependencies.VariableInit.outputs['specificImageTagTask.SPECIFIC_IMAGE_TAG_PREFIX'] ]
+        steps:
+          - task: Docker@2
+            displayName: 'Build and push db-schema-migrator image'
+            inputs:
+              containerRegistry: 'TechLink Azure Docker Registry'
+              repository: '$(Build.Repository.Name)'
+              tags: |
+                $(SPECIFIC_IMAGE_TAG_PREFIX)-db-schema-migrator
+                $(IMAGE_TAG_PREFIX)-db-schema-migrator
+              command: 'buildAndPush'
+              Dockerfile: 'db/schema/SchemaMigrator/Dockerfile'
+              buildContext: 'db/schema/SchemaMigrator'
+
+      - job: Manifests
+        displayName: 'Create and publish deployment manifest artifacts'
+        dependsOn: VariableInit
+        variables:
+          SPECIFIC_IMAGE_TAG_PREFIX: $[ dependencies.VariableInit.outputs['specificImageTagTask.SPECIFIC_IMAGE_TAG_PREFIX'] ]
+        steps:
+          - task: Bash@3
+            displayName: 'Transform config manifest file'
+            inputs:
+              targetType: 'inline'
+              script: |
+                mkdir artifacts
+                sed 's/#{MSSQL_HOST}/$(MSSQL_HOST)/' release/cd-pipeline/manifest-templates/config.manifest.yml > artifacts/config.manifest.yml
+                sed -i 's/#{MSSQL_DB}/$(MSSQL_DB)/' artifacts/config.manifest.yml
+                sed -i 's/#{MSSQL_UID}/$(MSSQL_UID)/' artifacts/config.manifest.yml
+                sed -i 's/#{MSSQL_PASSWORD}/$(MSSQL_PASSWORD)/' artifacts/config.manifest.yml
+                sed -i 's|#{BASE_URL}|$(BASE_URL)|' artifacts/config.manifest.yml
+                sed -i 's|#{API_URL}|$(API_URL)|' artifacts/config.manifest.yml
+                sed -i 's/#{ENV_NAMESPACE}/$(ENV_NAMESPACE)/' artifacts/config.manifest.yml
+                sed -i 's|#{AUTHORIZATION_URL}|$(AUTHORIZATION_URL)|' artifacts/config.manifest.yml
+                sed -i 's|#{AUTHORITY_URL}|$(AUTHORITY_URL)|' artifacts/config.manifest.yml
+                sed -i 's|#{REDIRECT_URI}|$(REDIRECT_URI)|' artifacts/config.manifest.yml
+                sed -i 's|#{POSTLOGOUT_REDIRECT_URI}|$(POSTLOGOUT_REDIRECT_URI)|' artifacts/config.manifest.yml
+                sed -i 's|#{ALLOWED_CORS_ORIGIN}|$(ALLOWED_CORS_ORIGIN)|' artifacts/config.manifest.yml
+                sed -i 's|#{ISSUER}|$(ISSUER)|' artifacts/config.manifest.yml
+
+          - task: Bash@3
+            displayName: 'Transform identity manifest file'
+            inputs:
+              targetType: 'inline'
+              script: |
+                sed 's/#{IMAGE_TAG}/$(SPECIFIC_IMAGE_TAG_PREFIX)/' release/cd-pipeline/manifest-templates/identity.manifest.yml > artifacts/identity.manifest.yml
+                sed -i 's/#{ENV_NAMESPACE}/$(ENV_NAMESPACE)/' artifacts/identity.manifest.yml
+
+          - task: Bash@3
+            displayName: 'Transform web-public manifest file'
+            inputs:
+              targetType: 'inline'
+              script: |
+                sed 's/#{IMAGE_TAG}/$(SPECIFIC_IMAGE_TAG_PREFIX)/' release/cd-pipeline/manifest-templates/web-public.manifest.yml > artifacts/web-public.manifest.yml
+                sed -i 's/#{ENV_NAMESPACE}/$(ENV_NAMESPACE)/' artifacts/web-public.manifest.yml
+
+          - task: Bash@3
+            displayName: 'Transform API manifest file'
+            inputs:
+              targetType: 'inline'
+              script: |
+                sed 's/#{IMAGE_TAG}/$(SPECIFIC_IMAGE_TAG_PREFIX)/' release/cd-pipeline/manifest-templates/api.manifest.yml > artifacts/api.manifest.yml
+                sed -i 's/#{ENV_NAMESPACE}/$(ENV_NAMESPACE)/' artifacts/api.manifest.yml
+
+          - task: PublishPipelineArtifact@1
+            displayName: 'Publish API manifest.yml'
+            inputs:
+              path: '$(System.DefaultWorkingDirectory)/artifacts'
+              artifact: release
+
+  - stage: Deploy
+    jobs:
+      - deployment: DeploymentInit
+        environment: 'Ubuntu-MicroK8s.development'
+        displayName: 'Kubernetes secrets configuration'
+        strategy:
+          # default deployment strategy, more coming...
+          runOnce:
+            deploy:
+              steps:
+                - task: Kubernetes@1
+                  displayName: 'Ensure registry secret exists in environment'
+                  inputs:
+                    connectionType: 'Kubernetes Service Connection'
+                    kubernetesServiceEndpoint: 'Ubuntu-MicroK8s-development-1572165353887'
+                    namespace: '$(ENV_NAMESPACE)'
+                    command: 'get'
+                    arguments: 'nodes'
+                    secretType: 'dockerRegistry'
+                    containerRegistryType: 'Azure Container Registry'
+                    azureSubscriptionEndpointForSecrets: 'Pay-As-You-Go(486ac4f6-c926-4e07-8d48-b68c0f81ed42)'
+                    azureContainerRegistry: 'techlinkacr.azurecr.io'
+                    secretName: 'tech-link-docker-registry'
+                    forceUpdate: true
+
+      - deployment: Config
+        environment: 'Ubuntu-MicroK8s.development'
+        displayName: 'Deploy config manifest'
+        dependsOn: DeploymentInit
+        strategy:
+          # default deployment strategy, more coming...
+          runOnce:
+            deploy:
+              steps:
+                - task: DownloadPipelineArtifact@2
+                  displayName: 'Download manifest files'
+                  inputs:
+                    buildType: current
+                    project: '29c000dd-48e8-4dc3-8596-11ca20716d72'
+                    definition: '1'
+                    artifactName: 'release'
+                    targetPath: 'release'
+
+                - task: KubernetesManifest@0
+                  displayName: 'Deploy config manifest file'
+                  inputs:
+                    action: 'deploy'
+                    kubernetesServiceConnection: 'Ubuntu-MicroK8s-development-1572165353887'
+                    namespace: 'development'
+                    manifests: 'release/config.manifest.yml'
+
+      - deployment: IdentityService
+        environment: 'Ubuntu-MicroK8s.development'
+        displayName: 'Deploy identity service manifest'
+        dependsOn: DeploymentInit
+        strategy:
+          # default deployment strategy, more coming...
+          runOnce:
+            deploy:
+              steps:
+                - task: DownloadPipelineArtifact@2
+                  displayName: 'Download manifest files'
+                  inputs:
+                    buildType: current
+                    project: '29c000dd-48e8-4dc3-8596-11ca20716d72'
+                    definition: '1'
+                    artifactName: 'release'
+                    targetPath: 'release'
+
+                - task: KubernetesManifest@0
+                  displayName: 'Deploy identity service manifest file'
+                  inputs:
+                    action: 'deploy'
+                    kubernetesServiceConnection: 'Ubuntu-MicroK8s-development-1572165353887'
+                    namespace: '$(ENV_NAMESPACE)'
+                    manifests: 'release/identity.manifest.yml'
+
+      - deployment: ApiService
+        environment: 'Ubuntu-MicroK8s.development'
+        displayName: 'Deploy API service manifest'
+        dependsOn: DeploymentInit
+        strategy:
+          # default deployment strategy, more coming...
+          runOnce:
+            deploy:
+              steps:
+                - task: DownloadPipelineArtifact@2
+                  displayName: 'Download manifest files'
+                  inputs:
+                    buildType: current
+                    project: '29c000dd-48e8-4dc3-8596-11ca20716d72'
+                    definition: '1'
+                    artifactName: 'release'
+                    targetPath: 'release'
+
+                - task: KubernetesManifest@0
+                  displayName: 'Deploy API service manifest file'
+                  inputs:
+                    action: 'deploy'
+                    kubernetesServiceConnection: 'Ubuntu-MicroK8s-development-1572165353887'
+                    namespace: '$(ENV_NAMESPACE)'
+                    manifests: 'release/api.manifest.yml'
+
+      - deployment: WebPublicService
+        environment: 'Ubuntu-MicroK8s.development'
+        displayName: 'Deploy web public service manifest'
+        dependsOn: DeploymentInit
+        strategy:
+          # default deployment strategy, more coming...
+          runOnce:
+            deploy:
+              steps:
+                - task: DownloadPipelineArtifact@2
+                  displayName: 'Download manifest files'
+                  inputs:
+                    buildType: current
+                    project: '29c000dd-48e8-4dc3-8596-11ca20716d72'
+                    definition: '1'
+                    artifactName: 'release'
+                    targetPath: 'release'
+
+                - task: KubernetesManifest@0
+                  displayName: 'Deploy web-public service manifest file'
+                  inputs:
+                    action: 'deploy'
+                    kubernetesServiceConnection: 'Ubuntu-MicroK8s-development-1572165353887'
+                    namespace: '$(ENV_NAMESPACE)'
+                    manifests: 'release/web-public.manifest.yml'

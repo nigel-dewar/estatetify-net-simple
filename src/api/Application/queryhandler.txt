@@ -1,0 +1,28 @@
+﻿public class List
+    {
+        public class Query : IRequest<List<PropertyDto>> {
+        
+        }
+
+        public class Handler : IRequestHandler<Query, List<PropertyDto>>
+        {
+            private readonly DataContext _context;
+            private readonly IMapper _mapper;
+
+            public Handler(DataContext context, IMapper mapper)
+            {
+                _context = context;
+                _mapper = mapper;
+            }
+
+            public async Task<List<PropertyDto>> Handle(Query request, CancellationToken cancellationToken)
+            {
+                var properties = await _context.properties
+                    .Include(x => x.UserProperties)
+                    .ThenInclude(x=>x.AppUser)
+                    .ToListAsync();
+
+                return _mapper.Map<List<Property>, List<PropertyDto>>(properties);
+            }
+        }
+    }

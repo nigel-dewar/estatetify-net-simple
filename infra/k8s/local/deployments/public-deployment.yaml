@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: public-deployment
+spec:
+  selector:
+    matchLabels:
+      app: public
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: public
+    spec:
+      containers:
+        - name: public
+          image: my-registry:55000/re-public:latest
+          ports:
+            - containerPort: 80
+          env:
+          - name: VUE_APP_IDENTITY_URL
+            value: http://identity.dev-estatetify.local
+          - name: VUE_APP_API_URL
+            value: http://api.dev-estatetify.local
+          - name: VUE_APP_CLIENT_URL
+            value: http://dev-estatetify.local
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: public-service
+
+spec:
+  # This defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users to connect to (eg browser)
+  selector:
+    app: public
+
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+
+  type: ClusterIP

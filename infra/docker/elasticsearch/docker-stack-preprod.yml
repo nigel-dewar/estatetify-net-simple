@@ -1,0 +1,42 @@
+networks:
+  analytics-net:
+    external:
+      name: shared-analytics-network
+  dmz-net:
+    external:
+      name: shared-dmz-network
+services:
+  elasticsearch:
+    command:
+    - elasticsearch
+    - -Ediscovery.zen.ping.unicast.hosts=elasticsearch
+    - -Ediscovery.zen.minimum_master_nodes=1
+    - -Egateway.expected_nodes=3
+    - -Egateway.recover_after_nodes=2
+    - -Etransport.host=0.0.0.0
+    deploy:
+      endpoint_mode: dnsrr
+      mode: global
+      placement:
+        constraints:
+        - node.platform.os == linux
+        - node.role == worker
+    image: elasticsearch:5.6-alpine
+    networks:
+      analytics-net: null
+    volumes:
+    - es-data:/data:rw
+  kibana:
+    deploy:
+      placement:
+        constraints:
+        - node.platform.os == linux
+      replicas: 3
+    image: kibana:5.6
+    networks:
+      analytics-net: null
+      dmz-net: null
+version: '3.3'
+volumes:
+  es-data: {}
+

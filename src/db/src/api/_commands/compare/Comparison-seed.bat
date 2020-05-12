@@ -1,0 +1,1 @@
+flyway -configFiles=./conf/compare-with-seed.conf migrate

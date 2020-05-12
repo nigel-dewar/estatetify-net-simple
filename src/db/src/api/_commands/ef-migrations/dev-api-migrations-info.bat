@@ -1,0 +1,1 @@
+flyway -configFiles=./conf/dev-api-ef-migrations.conf info

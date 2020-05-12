@@ -1,0 +1,37 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// .header {
+//     grid-column: 1 / -1;
+//     background-color: $color-primary;
+
+//     &__nav {
+
+//     }
+//   }
+
+.main {
+  grid-column: 1 / -1;
+}
+
+// .footer {
+//   background-color: $color-secondary;
+
+//   grid-column: 1 / -1;
+// }
+
+// html,
+// body {
+//   height: 100vh;
+// }
+// div.app,
+// div.page {
+//   height: 100% !important;
+// }

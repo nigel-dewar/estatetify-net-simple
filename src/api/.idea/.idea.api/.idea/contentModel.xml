@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\nigel\.nuget\packages\microsoft.net.test.sdk\16.2.0\build\netcoreapp1.0" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\nigel\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\nigel\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\nigel\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="C:\Users\nigel\.Rider2019.3\Config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\nigel\.Rider2019.3\Config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\nigel\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\nigel\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_api.1479979991.00" t="ExcludeRecursive" />
+    <e p="F:\_projects\estatetify\src\api" t="IncludeFlat">
+      <e p="api" t="IncludeRecursive">
+        <e p="Api.csproj" t="IncludeRecursive" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Config" t="Include">
+          <e p="MailServerConfig.cs" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="ActivitiesController.cs" t="Include" />
+          <e p="BaseController.cs" t="Include" />
+          <e p="BucketController.cs" t="Include" />
+          <e p="FilesController.cs" t="Include" />
+          <e p="FiltersController.cs" t="Include" />
+          <e p="GeneratorController.cs" t="Include" />
+          <e p="ListingsController.cs" t="Include" />
+          <e p="PostCodesController.cs" t="Include" />
+          <e p="ProfilesController.cs" t="Include" />
+          <e p="PropertiesController.cs" t="Include" />
+          <e p="PropertyController.cs" t="Include" />
+          <e p="TestController.cs" t="Include" />
+          <e p="UserController.cs" t="Include" />
+          <e p="UsersController.cs" t="Include" />
+        </e>
+        <e p="Middleware" t="Include">
+          <e p="ErrorHandlingMiddleware.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Api.AssemblyInfo.cs" t="Include" />
+              <e p="Api.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Persistence" t="Include">
+          <e p="obj" t="Include">
+            <e p=".EntityFrameworkCore.targets" t="Include" />
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="IUserInfoService.cs" t="Include" />
+          <e p="UserInfoService.cs" t="Include" />
+        </e>
+        <e p="SignalR" t="Include">
+          <e p="ChatHub.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="api.sln" t="IncludeFlat" />
+      <e p="Api.Tests" t="IncludeRecursive">
+        <e p="Api.Tests.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Api.Tests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="UnitTest1.cs" t="Include" />
+      </e>
+      <e p="Application" t="IncludeRecursive">
+        <e p="Application.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="commandhandler.txt" t="Include" />
+        <e p="Errors" t="Include">
+          <e p="RestException.cs" t="Include" />
+        </e>
+        <e p="Handlers" t="Include">
+          <e p="Activities" t="Include">
+            <e p="Attend.cs" t="Include" />
+            <e p="Create.cs" t="Include" />
+            <e p="Delete.cs" t="Include" />
+            <e p="Details.cs" t="Include" />
+            <e p="Edit.cs" t="Include" />
+            <e p="List.cs" t="Include" />
+            <e p="UnAttend.cs" t="Include" />
+          </e>
+          <e p="Comments" t="Include">
+            <e p="Create.cs" t="Include" />
+          </e>
+          <e p="Images" t="Include">
+            <e p="Add.cs" t="Include" />
+          </e>
+          <e p="Profiles" t="Include">
+            <e p="Details.cs" t="Include" />
+            <e p="Profile.cs" t="Include" />
+          </e>
+          <e p="Properties" t="Include">
+            <e p="AddActivity.cs" t="Include" />
+            <e p="AddImage.cs" t="Include" />
+            <e p="Attend.cs" t="Include" />
+            <e p="Create.cs" t="Include" />
+            <e p="Delete.cs" t="Include" />
+            <e p="Details.cs" t="Include" />
+            <e p="Edit.cs" t="Include" />
+            <e p="List.cs" t="Include" />
+            <e p="UnAttend.cs" t="Include" />
+          </e>
+          <e p="Users" t="Include">
+            <e p="AddImage.cs" t="Include" />
+            <e p="CurrentUser.cs" t="Include" />
+            <e p="DeleteImage.cs" t="Include" />
+            <e p="Login.cs" t="Include" />
+            <e p="Register.cs" t="Include" />
+            <e p="SetMainImage.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="IBucketRepository.cs" t="Include" />
+          <e p="IFilesRepository.cs" t="Include" />
+          <e p="IJwtGenerator.cs" t="Include" />
+          <e p="IUserAccessor.cs" t="Include" />
+        </e>
+        <e p="Mappings" t="Include">
+          <e p="MappingProfile.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="ActivityDto.cs" t="Include" />
+          <e p="AttendeeDto.cs" t="Include" />
+          <e p="CommentDto.cs" t="Include" />
+          <e p="ImageDTO.cs" t="Include" />
+          <e p="Images" t="Include">
+            <e p="AddFileResponse.cs" t="Include" />
+            <e p="AddItemRequest.cs" t="Include" />
+            <e p="AddJsonObjectRequest.cs" t="Include" />
+            <e p="CreateBucketResponse.cs" t="Include" />
+            <e p="DeleteFileResponse.cs" t="Include" />
+            <e p="GetJsonObjectResponse.cs" t="Include" />
+            <e p="GetS3BucketResponse.cs" t="Include" />
+            <e p="ListFilesResponse.cs" t="Include" />
+            <e p="ListS3BucketsResponse.cs" t="Include" />
+          </e>
+          <e p="ListingDTO.cs" t="Include" />
+          <e p="PermissionDto.cs" t="Include" />
+          <e p="PropertyDto.cs" t="Include" />
+          <e p="PropertyFeatureDto.cs" t="Include" />
+          <e p="PropertyPermissionDto.cs" t="Include" />
+          <e p="PropertyResult.cs" t="Include" />
+          <e p="PropertyTypeDto.cs" t="Include" />
+          <e p="UserDto.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Application.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Properties" t="Include" />
+        <e p="queryhandler.txt" t="Include" />
+        <e p="Validators" t="Include">
+          <e p="ValidatorExtensions.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ConsoleClient" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ClientCredentials.cs" t="Include" />
+        <e p="ConsoleClient.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="ConsoleClient.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="ResourceOwner.cs" t="Include" />
+      </e>
+      <e p="DataAccess.Models" t="IncludeRecursive">
+        <e p="AgencyDTO.cs" t="Include" />
+        <e p="AgentDTO.cs" t="Include" />
+        <e p="AuthContext.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CreateListingInDTO.cs" t="Include" />
+        <e p="Domain.Models.csproj" t="IncludeRecursive" />
+        <e p="FiltersListViewModel.cs" t="Include" />
+        <e p="ImageDTO.cs" t="Include" />
+        <e p="ListingDTO.cs" t="Include" />
+        <e p="ListingInDTO.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Domain.Models.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PostCodeModel.cs" t="Include" />
+        <e p="PostCodeQueryModel.cs" t="Include" />
+        <e p="PropertiesReturnDTO.cs" t="Include" />
+        <e p="PropertyImagesInDTO.cs" t="Include" />
+        <e p="PropertyInDTO.cs" t="Include" />
+        <e p="PropertyListViewModel.cs" t="Include" />
+        <e p="RegisterViewModel.cs" t="Include" />
+        <e p="SimpleClaim.cs" t="Include" />
+        <e p="ThumnailDTO.cs" t="Include" />
+        <e p="UserProfileInDTO.cs" t="Include" />
+      </e>
+      <e p="Domain" t="IncludeRecursive">
+        <e p="Activity.cs" t="Include" />
+        <e p="Agency.cs" t="Include" />
+        <e p="AgencyCompany.cs" t="Include" />
+        <e p="Agent.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Claim.cs" t="Include" />
+        <e p="Comment.cs" t="Include" />
+        <e p="Domain.csproj" t="IncludeRecursive" />
+        <e p="Feature.cs" t="Include" />
+        <e p="Identity" t="Include">
+          <e p="AppUser.cs" t="Include" />
+        </e>
+        <e p="Image.cs" t="Include" />
+        <e p="Listing.cs" t="Include" />
+        <e p="ListingPermission.cs" t="Include" />
+        <e p="ListingWizard.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Permission.cs" t="Include" />
+        <e p="PermissionClaim.cs" t="Include" />
+        <e p="PostCode.cs" t="Include" />
+        <e p="Property.cs" t="Include" />
+        <e p="PropertyFeature.cs" t="Include" />
+        <e p="PropertyPermission.cs" t="Include" />
+        <e p="PropertyType.cs" t="Include" />
+        <e p="Role.cs" t="Include" />
+        <e p="RoleClaim.cs" t="Include" />
+        <e p="Staff.cs" t="Include" />
+        <e p="StaffRole.cs" t="Include" />
+        <e p="thumbnail.cs" t="Include" />
+        <e p="UserActivity.cs" t="Include" />
+        <e p="UserProfile.cs" t="Include" />
+        <e p="UserProperty.cs" t="Include" />
+        <e p="UserType.cs" t="Include" />
+      </e>
+      <e p="EFLinq.Repository" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EFLinq.Repository.csproj" t="IncludeRecursive" />
+        <e p="EFLinqRepository.cs" t="Include" />
+        <e p="IEFLinqRepository.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="EFLinq.Repository.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Infrastructure" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Images" t="Include">
+          <e p="BucketRepository.cs" t="Include" />
+          <e p="FilesRepository.cs" t="Include" />
+          <e p="ImagesSettings.cs" t="Include" />
+        </e>
+        <e p="Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Infrastructure.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Security" t="Include">
+          <e p="JwtGenerator.cs" t="Include" />
+          <e p="UserAccessor.cs" t="Include" />
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Persistence" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DataContext.cs" t="Include" />
+        <e p="EFSeeder.cs" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="20200412070307_init.cs" t="Include" />
+          <e p="20200412070307_init.Designer.cs" t="Include" />
+          <e p="20200414094156_add comments.cs" t="Include" />
+          <e p="20200414094156_add comments.Designer.cs" t="Include" />
+          <e p="DataContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Persistence.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Persistence.csproj" t="IncludeRecursive" />
+        <e p="Seed.cs" t="Include" />
+      </e>
+      <e p="README.md" t="Include" />
+      <e p="S3.Repository" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Interfaces" t="Include">
+          <e p="IBucketRepository.cs" t="Include" />
+          <e p="IFilesRepository.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="S3.Repository.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Repositories" t="Include">
+          <e p="BucketRepository.cs" t="Include" />
+          <e p="FilesRepository.cs" t="Include" />
+        </e>
+        <e p="S3.Repository.csproj" t="IncludeRecursive" />
+        <e p="S3Models" t="Include">
+          <e p="Bucket" t="Include">
+            <e p="CreateBucketResponse.cs" t="Include" />
+            <e p="GetS3BucketResponse.cs" t="Include" />
+            <e p="ListS3BucketsResponse.cs" t="Include" />
+          </e>
+          <e p="Files" t="Include">
+            <e p="AddFileResponse.cs" t="Include" />
+            <e p="AddItemRequest.cs" t="Include" />
+            <e p="AddJsonObjectRequest.cs" t="Include" />
+            <e p="DeleteFileResponse.cs" t="Include" />
+            <e p="GetJsonObjectResponse.cs" t="Include" />
+            <e p="ListFilesResponse.cs" t="Include" />
+          </e>
+          <e p="S3Configuration.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Solution Items" t="Include" />
+    </e>
+  </component>
+</project>
