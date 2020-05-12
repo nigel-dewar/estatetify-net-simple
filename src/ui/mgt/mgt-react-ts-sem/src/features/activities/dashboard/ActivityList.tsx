@@ -7,7 +7,9 @@ import { RootStoreContext } from '../../../app/stores/rootStore';
 const ActivityList: React.FC = () => {
   const rootStore = useContext(RootStoreContext);
   const { activitiesByDate } = rootStore.activityStore;
-  
+
+  debugger
+
   return (
     <Fragment>
       {activitiesByDate.map(([group, activities]) => (
@@ -17,6 +19,7 @@ const ActivityList: React.FC = () => {
           </Label>
           <Item.Group divided>
             {activities.map(activity => (
+              
               <ActivityListItem key={activity.id} activity={activity} />
             ))}
           </Item.Group>

@@ -49,7 +49,7 @@ namespace Api
         {
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseLazyLoadingProxies();
+                //options.UseLazyLoadingProxies();
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
             });
 

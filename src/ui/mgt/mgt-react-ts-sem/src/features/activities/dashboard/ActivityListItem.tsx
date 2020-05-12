@@ -9,6 +9,8 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
 
   const host = activity.attendees.filter(x=>x.isHost)[0];
 
+  debugger;
+
   return (
     <Segment.Group>
       <Segment>
@@ -17,7 +19,7 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
             <Item.Image
               size="tiny"
               circular
-              src={host.image || "/assets/user.png"}
+              src={host?.image || "/assets/user.png"}
               style={{ marginBottom: 3 }}
             />
             <Item.Content>
@@ -26,7 +28,7 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
               </Item.Header>
               <Item.Description>
                 Hosted by
-                <Link to={`/profile/${host.userName}`}> {host.displayName}</Link>
+                <Link to={`/profile/${host?.userName}`}> {host?.displayName}</Link>
               </Item.Description>
               {activity.isHost && (
                 <Item.Description>
