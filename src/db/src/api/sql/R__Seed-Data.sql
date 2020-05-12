@@ -665,7 +665,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('083d673f-8d6c-4f3a-bc5e-e2ab780fcdc6','nigeldewar@live.com','Nigel','Dewar',NULL,NULL,NULL,_binary '',2,NULL),('5e08c89f-25a6-4077-a7e4-362e69826fb2','sue.jane@live.com','Sue','Jane',NULL,NULL,NULL,_binary '',4,NULL);
+INSERT INTO `users` VALUES ('5e08c89f-25a6-4077-a7e4-362e69826fb2','sue.jane@live.com','Sue','Jane',NULL,NULL,NULL,_binary '',4,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
